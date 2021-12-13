@@ -1,0 +1,12 @@
+Qty Value         Device             Package            Parts
+3   2x6           Socket Strip       2.54mm	        					DNP
+
+4   4k7           4R-NCAY16          CAY16              RN1, RN2, RN3, RN4			Farnell 1770136
+1   100n          C0402-B            0402-B             C3[C4]					Farnell 8819742
+2   100u          C1206-A            1206-A             C1, C2					Farnell 2362115
+16  White         CHIPLED_0603       0603               LED0-LED15				*
+2   Green         CHIPLED_0603       0603               LED16, LED17				*
+2   4k7           R0402-B            0402-B             R1, R2					Farnell 2073064
+1   10k           R0402-B            0402-B             R3[R6]					Farnell 2072517
+1   1k            R0402-B            0402-B             R4[R7]					Farnell 2072516
+1   BR24G04NUX    BR24G04NUX         DFN200X300X100-9N  U1[U2]					Farnell 2373733

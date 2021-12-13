@@ -1,0 +1,29 @@
+microzed_sd_v0.3
+
+Part  Value             Device  	       Package		Description				FARNELL
+---------------------------------------------------------------------------------------------------------------
+C1    1uF               MC0402X105K6R3CT       0402		MLC Capacitor X5R, 6.3V 		1759375
+C2    1uF               MC0402X105K6R3CT       0402		MLC Capacitor X5R, 6.3V 		1759375
+C3    1uF               MC0402X105K6R3CT       0402		MLC Capacitor X5R, 6.3V 		1759375
+C4    1uF               MC0402X105K6R3CT       0402		MLC Capacitor X5R, 6.3V 		1759375
+C5    2.2nF             MC0402B222K250CT       0402		MLC Capacitor X7R, 25V			1758916
+C6    1uF               GRM155R61C105KA12D     0402		MLC Capacitor X5R, 16V			2362093
+D1    -		        		       MICROMELF	Diode Shottky 40V/200mA
+R1    ???				       0603		Resistor 1-20K, 1%
+R2    ???				       0603		Resistor 1-20K, 1%
+R3    10k               MCMR04X1002FTL         0402		Resistor 10K, 0.063W, 1%		2072517
+R4    100R              MCMR04X1000FTL         0402		Resistor 100R, 0.063W, 1%		2072515
+R5    2k2		MCMR04X2201FTL         0402		Resistor 2K2, 0.063W, 1%		2072780
+R6    10k               MCMR04X1002FTL         0402		Resistor 10K, 0.063W, 1%		2072517
+R7    10k               MCMR04X1002FTL         0402		Resistor 10K, 0.063W, 1%		2072517
+T1    PMR670UPE         PMR670UPE	       SOT416		P-channel Trench MOSFET  20V, 480mA	2069566
+T2    PMR670UPE         PMR670UPE	       SOT416		P-channel Trench MOSFET  20V, 480mA	2069566
+T3    PMR290UNE         PMR290UNE	       SOT416		N-channel Trench MOSFET  20V, 700mA	2069565
+U1    TXS02612          TXS02612	       WQFN-24		SDIO EXPANDER W/VOLT TRANSLATOR 	2335617
+U2    MCP23009-E/SS     MCP23009-E/SS	       SSOP-20		IC, I/O EXPANDER, 8BIT, 3.4MHZ		1854487
+U3    74LVC1G98DW-7     74LVC1G98DW-7	       SOT363		LOGIK, POS MULTI FUNC, 3 IP		1893843
+U4    LD6836TD/30P      LD6836TD/30P	       5SOT753		LDO, 5.5V, 0.09VDO, 0.3A, 3V		2308335
+U5    LD6836TD/30P      LD6836TD/30P	       5SOT753		LDO, 5.5V, 0.09VDO, 0.3A, 3V		2308335
+U6    EMC2101-ACZL      EMC2101-ACZL	       MSOP-8		Fan Control DAC/PWM, Temp.		2361961
+uSD0  MICRO-SD          MICRO-SD3	       --
+uSD1  MICRO-SD          MICRO-SD3	       --

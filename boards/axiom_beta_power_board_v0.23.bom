@@ -1,0 +1,68 @@
+Qty Value		Device  		Package 		Parts															Description											
+15  DNP 		R0402-B 		0402-B			R2, R3, R6, R7, R10, R11, R14, R15, R18, R19, R22, R23, R26, R27, R30, R31						DNP
+16  DNP 		C0402-B 		0402-B			C14, C17, C20, C23, C38, C41, C44, C47, C50, C53, C56, C59, C62, C65, C68, C71, C74					DNP
+4   PINRC-2X04		PINRC-2X04		R2X04			PWR-NE, PWR-NW, PWR-SE, PWR-SW												DNP
+
+1   100R	*	R0402-B 		0402-B			R77																							Farnell 9239111	
+1   102k	*	R0402-B 		0402-B			R37																							Farnell 2072527
+1   12k 	*	R0402-B 		0402-B			R110																							Farnell 2072577
+1   15k 	*	R0402-B 		0402-B			R90																							Farnell 2072647
+1   1k27	*	R0402-B 		0402-B			R74																							Farnell 2072596
+1   1k6 	*	R0402-B 		0402-B			R82																							Farnell 2072669
+1   1k		*	R0402-B 		0402-B			R91																							Farnell 2072516
+1   20k 	*	R0402-B 		0402-B			R38																							Farnell 2072753
+1   22k 	*	R0402-B 		0402-B			R84																							Farnell 2072781
+1   2k0 	*	R0402-B 		0402-B			R81, R115																						Farnell 2072752
+1   2k7 	*	R0402-B 		0402-B			R83																							Farnell 2072855
+1   3k		*	R0402-B 		0402-B			R89																							Farnell 2072894
+1   430R	*	R0402-B 		0402-B			R75																							Farnell 2073029
+1   560R	*	R0402-B 		0402-B			R78																							Farnell 2073129
+1   5k6 	*	R0402-B 		0402-B			R79																							Farnell 2073130
+1   750R	*	R0402-B 		0402-B			R73																							Farnell 2073236
+1   9k1 	*	R0402-B 		0402-B			R80																							Farnell 2073309
+2   13k 	*	R0402-B 		0402-B			R86, R88																						Farnell 2072606
+3   200k	*	R0402-B 		0402-B			R94, R99, R104																						Farnell 2072754
+4   0R			R0402-B 		0402-B			R76, R116, R117, R118																					Farnell 2072513
+7   10k 		R0402-B 		0402-B			R85, R87, R109, R111, R112, R113, R114																			Farnell 2072517
+8   RA [20k5]	*	R0402-B 		0402-B			R4, R8, R12, R16, R20, R24, R28, R32																			Farnell 2072763
+8   RB [68k]	*	R0402-B 		0402-B			R1, R5, R9, R13, R17, R21, R25, R29																			Farnell 2073203
+8   RC [25k5]	*	R0402-B 		0402-B			R34, R36, R40, R42, R44, R46, R48, R50																			Farnell 2072838
+8   RD [180k]	*	R0402-B 		0402-B			R33, R35, R39, R41, R43, R45, R47, R49																			Farnell 2072711
+14  4k7 		R0402-B 		0402-B			R92, R93, R95, R96, R97, R98, R100, R101, R102, R103, R105, R106, R107, R108														Farnell 2073064
+
+22  R015		R1206-B 		1206-B			R51, R52, R53, R54, R55, R56, R57, R58, R59, R60, R61, R62, R63, R64, R65, R66, R67, R68, R69, R70, R71, R72		LRMAM1206-R015FT5						Farnell 2079441
+2   15p			C0402-B 		0402-B			C1, C2																							Farnell 1856050
+9   100n		GRM155R71C104KA88D	0402-B			C5, C6, C8, C10, C85, C86, C87, C88, C89																		Farnell 8819742
+6   10n 		GRM155R71C103KA01D	0402-B			C3, C11, C12, C76, C79, C82																				Farnell 1828864
+12  1u			C0402-B 		0402-B			C25, C26, C28, C29, C31, C32, C34, C35, C77, C78, C80, C81																Mouser 81-GRM155R61C105KA2D
+1   100n		MC0603B104K500CTC0	0603-B			C4																							Farnell 1759122		
+16  10u 		GRM188R61A106ME69D	0603-B			C15, C18, C21, C24, C39, C42, C45, C48, C51, C54, C57, C60, C63, C66, C69, C72, C75													Mouser 81-GRM188R61A106ME9D	
+22  4u7 		GRM188C80J475KE15D	0603-B			C7, C9, C13, C16, C19, C22, C27, C30, C33, C36, C37, C40, C43, C46, C49, C52, C55, C58, C61, C64, C67, C70, C73										Farnell 1907504
+2   22u 		C0805-B 		0805-B			C83, C84																						Farnell 1108326
+3   600R		FERRITE_0603MP  	0603MP			FB1, FB2, FB3														Ferrite Bead MMZ 600R 500mA					RS 741-3135
+6   80R			L0805-A 		0805-A			L9, L10, L11, L12, L13, L18																				Farnell 2292366
+12  80R			L0805-B 		0805-B			L1, L2, L3, L4, L5, L6, L7, L8, L14, L15, L16, L17																	Farnell 2292366
+1   5_USB_3S		5_USB_3S		MICRO-AB-H-SMT		USB																							Farnell 1521869
+1   93LC46BT-I/OT	93LC46BT-I/OT		SOT95P280X145-6N	U2															1K Microwire Compatible Serial EEPROM				Farnell 1556164
+4   AP7312-3333FM-7	LDO_DUAL-AP7312 	SOT23-6 		U10, U11, U12, U13													Dual Output SOT23-6 Linear Regulators				Farnell 2138329
+2   DF12(XX)-20DS-0.5V	DF12(XX)-20DS-0.5V	DF12(XX)-20DS-0.5V	PB-NW, PB-SE																						Farnell 1324621
+1   FT232HL		FT232H  		LQFP48			U1															FTDI FT232H							Farnell 1870924
+1   LD1117S33TR 	LD1117S 		SOT-223 		U26															Low Drop Fixed And Adjustable Positive Voltage Regulators	Farnell 1202826
+17  MCP1727-ADJE/MF	MCP1727-ADJE/MF 	DFN65P300X300X100-9N	EE, IOE, IOW, MCN, MCS, MXN, MXS, NE, NN, NW, RFE, RFW, SE, SS, SW, VIO, WW						IC, 1.5A, ADJ, Low Voltage, Low Quiescent Current LDO 		Farnell 1851979
+4   MCP23018-E/MJ	MCP23018QFN		QFN50P400X400X80-25N	U6, U7, U8, U9														Expander I/0 16Bit						Farnell 1854489
+1   MICRO-SD-2CD	MICRO-SD-2CD		TF-MICRO-SD_PP2 	SD1															Micro SD Card Connector - Push & Push - With Card Detection	Farnell 2081363
+11  PAC1720		PAC1720 		DFN3X3_10LEAD		U14, U15, U16, U17, U18, U19, U20, U21, U22, U23, U24																	Farnell 2362017
+1   PCA9540BDP		PCA9540BDP		SOP65P490X300-8N	U27															IC,2-channel I2C-bus multiplexer, 8TSSOP			Farnell 2212116
+1   PICO-SPOX-5 	PICO-SPOX-5		PICO-SPOX-5		X1																							Farnell 1711330
+8   PVZ2A		PVZ2A			TRIM-PVZ2A		TR1, TR2, TR3, TR4, TR5, TR6, TR7, TR8																			Farnell 1771728
+1   12.000MHz		SMD-4P-2G-3.2X2.5	ABM8G			Q1																							Farnell 2467837
+2   SPX3819M5-L 	SPX3819M5-L		SOT95P280X145-5N	CNW, CSE														500mA, LOW-NOISE LDO VOLTAGE REGULATOR  			Farnell 1831948
+1   TPD3E001DRL 	TPD3E001DRL		R-PDSO-N5		U3															LOW-CAPACITANCE 3-CHANNEL ESD-PROTECTION ARRAY			Farnell 1603422
+3   GTL2002DC		GTL2002DC		VSSOP-8 		U4, U5, U25														Bidirectional low voltage translator,SOIC-8			Mouser 771-GTL2002DC-G
+1   IP4252CZ16-8-TTL	IP4252CZ16-8-TTL	SON40P135X330X55-17N	U28															passive filter network  					Farnell 1829298
+1   LM75BGD		LM75BGD 		SOT996-2/3		U29															Digital temperature sensor and thermal watchdog			Mouser 771-LM75BGD
+
+1   JX1/JX2 Bottom	61083-10*400LF  	100pin			ZED																							Mouser 649-61083-103400LF
+1   JX1/JX2 Top 	61082-101400LF  	100pin			BETA																							Farnell 1103988
+
+

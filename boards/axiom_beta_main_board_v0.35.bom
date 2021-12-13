@@ -1,0 +1,19 @@
+Qty Value               Device              Package              Parts                          Description
+1                       DIODE-MICROMELF-R   MICROMELF-R          D1                             DNP
+6                       R0402-B             0402-B               R9, R11, R12, R13, R14         DNP
+2   50R                 R0402-B             0402-B               R7, R8                         DNP
+
+12  100n                C0402-B             0402-B               C9-C18, C41, C42               Farnell 8819742
+3   10k                 R0402-B             0402-B               R10, R18, R19                  Farnell 2331444
+24  10n                 C0402-B             0402-B               C19-C40, C43, C44              Farnell 8819734
+6   4k7                 R0402-B             0402-B               R1, R2, R3, R4, R5, R6         Farnell 2073064
+
+2   DF12(XX)-20DP-0.5V  DF12(XX)-20DP-0.5V  DF12(XX)-20DP-0.5V   PB-NW, PB-SE                   Farnell 1324644
+2   FX10-100/10S        FX10-100/10S        FX10A-100S/10        X-EAST, X-WEST                 Farnell 2427555
+1   KSSG23J12           KSSG23J12           KSSG23J12            SP1                            Farnell 2215088
+2   MACHXO2-100         MACHXO2-100         MACHXO2-100TQFP      RFE, RFW                       Mouser 842-XO21200HC6TG100C
+2   NX3008NBKT          NX3008NBKT          SOT416               T1, T2                        	Farnell 2069543
+1   PCA9540BDP          PCA9540BDP          SOP65P490X300-8N     U1                             Farnell 2212116
+2   PIC16F1718-I/MV     PIC16F1718-I/MV     QFN40P400X400X55-29N U2, U3                         Mouser 579-PIC16F1718-I/MV
+
+1   JX1/JX2 Bottom	61083-101400LF 	    100pin	  	 ZED				Farnell 1103986

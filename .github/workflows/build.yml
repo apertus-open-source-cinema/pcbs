@@ -1,0 +1,39 @@
+name: build artifacts and push shit
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: prepare
+        run: |
+          mkdir home
+      - name: build artifacts
+        uses: addnab/docker-run-action@v3
+        with:
+          image: apertushq/eagle-docker:lngxymr611z4cqfyhy3r73ljl1chsgbf
+          options: -v ${{ github.workspace }}:/src
+          run: |
+            mkdir /tmp
+            cd /src
+            python analyze.py
+            python generate_info.py
+            HOME=/src/home xvfb-run bash create_key_file.sh
+            HOME=/src/home xvfb-run python gen.py
+      - name: install webpage deps
+        run: |
+          apt-get update -q && apt-get install -y -q npm
+          cd web
+          npm install
+          npm run build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./web/dist

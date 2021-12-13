@@ -1,0 +1,64 @@
+#usage "<b>Save variant board files.</b>"
+       "<p>"
+       "RUN save-brd-variants.ulp"
+       "<p>"
+       "Switches through all main assembly variants and saves a board file for each variant with name<br>"
+       "<i>filename-variantname.brd</i>. For the default assembly variant <i>default</i> is used as variant name.<br>"
+       "Schematic and board have to be loaded and be in a consistent state.<br>"
+       "This is useful as a preparatory step for CAM processing of the variants.<br>"
+       "If the variant name contains characters which are invalid for file names, a '_' is inserted instead.<br>"
+       "Invalid characters are /\\:&lt;&gt;*|?."
+       "<p>"
+       "<author>author support@cadsoft.de</author>"
+
+#require 6.0500;
+string Version = "1.0";
+
+// Duplicate the apostroph: Needed for EAGLE commands with arguments with apostrophs allowed
+string DupApostroph(string name) {
+  string t[];
+  int cnt = strsplit(t, name, '\'');
+  if (cnt > 1) {
+     name = "";
+     for (int i = 0; i < cnt; ++i)
+         if (i == 0)
+            name += t[i];
+         else
+            name += "''" + t[i];
+  }
+  return name;
+}
+
+// Main section
+if (project.schematic && project.board)
+   project.schematic(SCH) {
+     string cmds, line, info;
+     string invalidChars = "/\\:<>*|?"; // Chars in variant names that create problems.
+     info = "Creating variant board files\n\n";
+     // Currently selected variant. Default variant: The name "''" is disturbing here...
+     string currVar = (variant() == "''") ? "" : variant();
+
+     SCH.variantdefs(VD) {
+       string varName = (VD.name == "''") ? "default" : VD.name;
+
+       // Replace chars which are invalid for filenames with '_'
+       char ic = invalidChars[0];
+       for (int i = 0; ic != 0; ic = invalidChars[++i])
+           for (int pos = strchr(varName, ic); pos != -1; pos = strchr(varName, ic))
+               varName = strsub(varName, 0, pos) + "_" + strsub(varName, pos + 1);
+
+       string fileName = filesetext(SCH.name, "-" + varName + ".brd");
+
+       // switch to variant in SCH and write the BRD. "SET CONFIRM NO" in order to confirm question "Do you want to save SCH as well" with no.
+       sprintf(line, "EDIT .sch; VARIANT '%s'; EDIT .brd; SET CONFIRM NO; WRITE '%s';\n",
+               (VD.name == "''" ? "" : DupApostroph(VD.name)), DupApostroph(fileName));
+       cmds += line;
+       info += fileName + "\n";
+     }
+
+     sprintf(line, "EDIT .sch; VARIANT '%s'; WRITE;\n", DupApostroph(currVar)); // switch back to current variant
+     cmds += line;
+     exit(cmds);
+   }
+else
+   dlgMessageBox("No consistent schematic/board pair! ", "Ok");

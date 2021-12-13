@@ -1,0 +1,16 @@
+.DS_Store
+.idea
+*.log
+tmp/
+
+
+boards/*.drills.xln
+boards/*.drills.dri
+boards/*.ger
+boards/*.gpi
+boards/*.zip
+boards/*.png
+boards/*.b\#\#
+boards/*.s\#\#
+
+info.json

@@ -1,0 +1,12 @@
+Qty Value        Device          Package           Parts                          Description 
+4                PINHD-1X02_2.54 1X02              NE, NW, SE, SW                 DNP
+
+1   10k          R0402-B         0402-B            R1        	                  Farnell 2331444
+1   1k           R0402-B         0402-B            R2                             Farnell 2331474
+1   100n         C0402-B         0402-B            C1                             Farnell 8819742
+8   47u          C0805-B         0805-B            C2-C9             		  Farnell 2362109
+
+1   BR24G04NUX   BR24G04NUX      DFN200X300X100-9N U1	                 	  Farnell 2373733
+
+2   FX10-100/10P FX10-100/10P    FX10A-100P/10     X-EAST, X-WEST                 		
+2   FX10-144S    FX10-144S       FX10A-144S        X-NORTH, X-SOUTH               Farnell 2498899
