@@ -2,7 +2,7 @@
 
 import configparser
 import subprocess
-from zipfile import ZipFile
+from zipfile import ZipFile, ZIP_DEFLATED
 from pathlib import Path
 import copy
 import json
@@ -82,7 +82,7 @@ def gen_output(board, variant, config, eagle_version):
     output_name = str(Path(board).stem) + get(config, "Output")
     wheel_name = str(Path(board).stem) + get(config, "Wheel")
     device = get(config, 'Device')
-    layers = [layer_mappings[layer] if layer in layer_mappings else layer for layer in get(config, 'Layers').split()]
+    layers = [layer_mappings[layer] if layer in layer_mappings else layer for layer in get(config, 'Layers').split() if (layer in layer_mappings and layer_mappings[layer] is not None) or layer not in layer_mappings]
 
     enc_flags = get(config, 'Flags')
     default_flags = '0 0 0 1 0 1 1'.split()
@@ -106,6 +106,8 @@ def gen_output(board, variant, config, eagle_version):
 
 def gen_pdf(board, variant):
     out_base = f"{board}-{variant}"
+    if Path(out_base + ".pdf").exists():
+        return
     if variant == "default":
         variant = ""
     sch_file = board + ".sch"
@@ -130,7 +132,8 @@ def preview_pngs(board):
     top_preview = stem + '_top-preview.png'
     bottom_preview = stem + '_bottom-preview.png'
 
-    if not Path(top_full).exists() or not Path(bottom_full).exists():
+    if not (Path(top_full).exists() and Path(bottom_full).exists()):
+        print("generating full res previews for", stem, Path(top_full).exists(), Path(bottom_full).exists())
         theme = THEMES['OSH Park']
         drill = load_layer(stem + '.drills.xln')
 
@@ -191,8 +194,8 @@ def layer_mapping(board_file):
     bsilk = d("[name='_bSilk']")("layer").attr("number")
     if bsilk is None:
         bsilk = d("[name='_bsilk']")("layer").attr("number")
-    assert tsilk is not None
-    assert bsilk is not None
+    # assert tsilk is not None
+    # assert bsilk is not None
     return {
         "53": tsilk,
         "54": bsilk
@@ -215,7 +218,7 @@ def process(board):
         zipfile = base + ".zip"
 
         if not Path(zipfile).exists() or force_recam:
-            with ZipFile(zipfile, "w") as gerber_zip:
+            with ZipFile(zipfile, "w", ZIP_DEFLATED) as gerber_zip:
                 for section in config.sections():
                     section = config[section]
                     if "Device" in section:
@@ -234,4 +237,6 @@ boards = json.loads(Path("info.json").read_text())
 
 from multiprocessing import Pool
 with Pool() as pool:
+    # for board in boards:
+    #     process(board)
     res = list(pool.imap_unordered(process, boards))
