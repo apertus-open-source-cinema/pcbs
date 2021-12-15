@@ -1,5 +1,4 @@
-import * as infos from "../../info.json";
-import {board_data, licenses, schs, brds, sch_pdfs, gerbers} from "./data.ts";
+import {boards, board_data, licenses, schs, brds, sch_pdfs, gerbers} from "./data.ts";
 
 import {
     Link,
@@ -14,9 +13,8 @@ import {
     Box
 } from "@mui/material";
 
-import JSONTree from "react-json-tree";
-
 import {useState} from "react";
+import {useParams, Link as RouterLink} from "react-router-dom";
 
 function CopyInfo(props) {
     const info = props.info;
@@ -29,28 +27,6 @@ function CopyInfo(props) {
 function License(props) {
     const spdx_id = props.license;
     return <Link href={licenses[spdx_id]}>{spdx_id}</Link>
-}
-
-function board_infos_to_grouped(infos) {
-    let boards = new Map();
-
-    for (const board of infos) {
-        let {name, version, tag} = board;
-        if (tag === null) {
-            tag = "default";
-        }
-
-        if (!boards.has(name)) {
-            boards.set(name, new Map());
-        }
-        const versions = boards.get(name);
-        if (!versions.has(version)) {
-            versions.set(version, new Map())
-        }
-        versions.get(version).set(tag, board);
-    }
-
-    return boards;
 }
 
 function select_parameters(info, version: String | null, tag: String | null, variant: String | null) {
@@ -82,7 +58,9 @@ function Board(props) {
     return <Grid item>
         <Card>
             <CardContent>
-                <Typography variant='h4'>{name}</Typography>
+                <Link color="inherit" underline="hover" to={`/boards/${name}`} component={RouterLink}>
+                    <Typography variant='h4'>{name}</Typography>
+                </Link>
                 <Grid container>
                     <Grid item xs={4}>
                         <Grid container direction="column" spacing={2}>
@@ -91,8 +69,10 @@ function Board(props) {
                                 <CopyInfo info={selected["sch"]}/>
                                 <Grid container spacing={2}>
                                     <Grid item><Button variant="contained"
+                                                       download={`${base}.sch`}
                                                        href={schs[base]}>.sch</Button></Grid>
                                     <Grid item><Button variant="contained"
+                                                       download={`${base}-${variant}.pdf`}
                                                        href={sch_pdfs[`${base}-${variant}`]}>.pdf</Button></Grid>
                                 </Grid>
                             </Grid>
@@ -100,8 +80,8 @@ function Board(props) {
                                 <Typography variant='h6'>Board:</Typography>
                                 <CopyInfo info={selected["brd"]}/>
                                 <Grid container spacing={2}>
-                                    <Grid item><Button variant="contained" href={brds[`${base}-${variant}`]}>.brd</Button></Grid>
-                                    <Grid item><Button variant="contained" href={gerbers[`${base}-${variant}`]}>Gerbers</Button></Grid>
+                                    <Grid item><Button variant="contained" download={`${base}-${variant}.brd`} href={brds[`${base}-${variant}`]}>.brd</Button></Grid>
+                                    <Grid item><Button variant="contained" download={`${base}-${variant}.zip`} href={gerbers[`${base}-${variant}`]}>Gerbers</Button></Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -136,6 +116,11 @@ function Board(props) {
                                 choices={board.get(version).get(tag)["variants"].values()}
                                 onChange={(new_variant) => setSelected([version, tag, new_variant])}
                             />
+                            <Grid item>
+                                <Link to={`/boards/${name}/${version}/${tag}/${variant}`} component={RouterLink}>
+                                    Direct link
+                                </Link>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -144,14 +129,33 @@ function Board(props) {
     </Grid>;
 }
 
-export function App() {
-    const boards = board_infos_to_grouped(infos);
-
+export function FullList(props) {
+    const bs = props.boards ?? boards;
     return <Grid container alignItems="center" justifyContent="center">
         <Grid item container direction="column" alignItems="stretch" spacing={1} justifyContent="center" sx={{ width: 1800 }}>
-            {Array.from(boards.entries(), ([name, versions]) => <Board key={name} name={name} board={versions}/>)}
+            {Array.from(bs.entries(), ([name, versions]) => <Board key={name} name={name} board={versions}/>)}
         </Grid>
     </Grid>
+}
+
+export function SingleBoard() {
+    const { board } = useParams();
+    const fakeBoards = new Map();
+    fakeBoards.set(board, boards.get(board));
+    return <FullList boards={fakeBoards} />
+}
+
+export function SpecificSingleBoard() {
+    const { board, variant, version, assemblyVariant } = useParams();
+    const fakeBoards = new Map();
+    fakeBoards.set(board, new Map());
+    const versions = fakeBoards.get(board);
+    versions.set(version, new Map());
+    const copiedBoard = Object.assign({}, boards.get(board).get(version).get(variant));
+    copiedBoard["variants"] = [assemblyVariant];
+    versions.get(version).set(variant, copiedBoard);
+
+    return <FullList boards={fakeBoards} />
 }
 
 function sorted_choices(c) {

@@ -10,7 +10,15 @@ boards/*.ger
 boards/*.gpi
 boards/*.zip
 boards/*.png
+boards/*.webp
+boards/*-default.brd
+boards/*-Beta.brd
+boards/*-Min.brd
+boards/*-Tele.brd
+boards/*-MinS.brd
+boards/*.pdf
 boards/*.b\#\#
+boards/*.b\#1
 boards/*.s\#\#
 
 info.json

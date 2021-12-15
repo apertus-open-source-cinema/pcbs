@@ -28,7 +28,9 @@ jobs:
             HOME=/src/home xvfb-run python gen.py
       - name: install webpage deps
         run: |
-          apt-get update -q && apt-get install -y -q npm
+          sudo apt-get update -q && apt-get install -y -q npm libwebp parallel
+          cd boards
+          find . -name *.png | parallel -j100% cwebp -lossless {} -o {.}.webp
           cd web
           npm install
           npm run build
