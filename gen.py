@@ -234,11 +234,12 @@ CAM_JOB = "oshpark-4layer.cam"
 config = configparser.ConfigParser(strict=False)
 config.read(CAM_JOB)
 
-boards = json.loads(Path("info.json").read_text())
+boards = json.loads(Path("info.json").read_text())[:20]
 
 if len(sys.argv) == 3:
     shard = int(sys.argv[1])
     total = int(sys.argv[2])
+    print(f"processing shard {shard} of {total}")
     per_shard = (len(boards) + total - 1) // total
     boards = boards[shard * per_shard:(shard + 1) * per_shard]
 
