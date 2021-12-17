@@ -59,7 +59,7 @@ jobs:
       - name: build webpage
         run: |
           sudo apt-get update -q && sudo apt-get install -y -q npm 
-          mv board_data*/* boards
+          mv --backup=numbered board_data*/* boards
           mv boards/info.json .
           cd web
           npm install
