@@ -37,7 +37,7 @@ jobs:
           SHARD_TOTAL: ${{ matrix.total }}
       - name: convert to webp
         run: |
-          sudo apt-get update -q && sudo apt-get install -y -q libwebp parallel
+          sudo apt-get update -q && sudo apt-get install -y -q webp parallel
           cd boards
           find . -name *.png | parallel -j100% cwebp -lossless {} -o {.}.webp
       - uses: actions/upload-artifact@v2
