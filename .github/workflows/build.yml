@@ -30,6 +30,7 @@ jobs:
             cd /src
             python analyze.py
             python generate_info.py
+            cp info.json boards/
             HOME=/src/home xvfb-run bash create_key_file.sh
             HOME=/src/home xvfb-run python gen.py $SHARD $SHARD_TOTAL
         env:
@@ -45,6 +46,7 @@ jobs:
           name: board_data-${{ matrix.shard }}
           path: |
             boards/*.zip
+            boards/*.json
             boards/*.webp
             boards/*.pdf
 
@@ -58,6 +60,7 @@ jobs:
         run: |
           sudo apt-get update -q && sudo apt-get install -y -q npm 
           mv board_data*/* boards
+          mv boards/info.json .
           cd web
           npm install
           npm run build
