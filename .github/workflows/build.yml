@@ -21,21 +21,23 @@ jobs:
           mkdir home
       - name: build artifacts
         uses: addnab/docker-run-action@v3
-        env:
-          SHARD: ${{ matrix.shard }}
-          SHARD_TOTAL: ${{ matrix.total }}
         with:
           image: apertushq/eagle-docker:lngxymr611z4cqfyhy3r73ljl1chsgbf
-          options: -v ${{ github.workspace }}:/src
+          options: -v ${{ github.workspace }}:/src -e SHARD -e SHARD_TOTAL
           run: |
+            echo $SHARD $SHARD_TOTAL
             mkdir /tmp
             cd /src
             python analyze.py
             python generate_info.py
             HOME=/src/home xvfb-run bash create_key_file.sh
             HOME=/src/home xvfb-run python gen.py $SHARD $SHARD_TOTAL
+        env:
+          SHARD: ${{ matrix.shard }}
+          SHARD_TOTAL: ${{ matrix.total }}
       - name: convert to webp
         run: |
+          sudo apt-get update -q && apt-get install -y -q libwebp parallel
           cd boards
           find . -name *.png | parallel -j100% cwebp -lossless {} -o {.}.webp
       - uses: actions/upload-artifact@v2
@@ -54,8 +56,8 @@ jobs:
       - uses: actions/download-artifact@v2
       - name: build webpage
         run: |
-          sudo apt-get update -q && apt-get install -y -q npm libwebp parallel
-          mv board_data/* boards
+          sudo apt-get update -q && apt-get install -y -q npm 
+          mv board_data*/* boards
           cd web
           npm install
           npm run build
