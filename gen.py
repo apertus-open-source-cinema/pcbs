@@ -234,7 +234,7 @@ CAM_JOB = "oshpark-4layer.cam"
 config = configparser.ConfigParser(strict=False)
 config.read(CAM_JOB)
 
-boards = json.loads(Path("info.json").read_text())[:20]
+boards = json.loads(Path("info.json").read_text())
 
 if len(sys.argv) == 3:
     shard = int(sys.argv[1])
