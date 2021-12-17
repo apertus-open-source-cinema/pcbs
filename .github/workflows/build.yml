@@ -34,8 +34,10 @@ jobs:
             python generate_info.py
             HOME=/src/home xvfb-run bash create_key_file.sh
             HOME=/src/home xvfb-run python gen.py $SHARD $SHARD_TOTAL
-            cd boards
-            find . -name *.png | parallel -j100% cwebp -lossless {} -o {.}.webp
+      - name: convert to webp
+        run: |
+          cd boards
+          find . -name *.png | parallel -j100% cwebp -lossless {} -o {.}.webp
       - uses: actions/upload-artifact@v2
         with:
           name: board_data-${{ matrix.shard }}
