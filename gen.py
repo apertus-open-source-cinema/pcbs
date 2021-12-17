@@ -6,6 +6,7 @@ from zipfile import ZipFile, ZIP_DEFLATED
 from pathlib import Path
 import copy
 import json
+import sys
 
 from pyquery import PyQuery as pq
 
@@ -234,6 +235,12 @@ config = configparser.ConfigParser(strict=False)
 config.read(CAM_JOB)
 
 boards = json.loads(Path("info.json").read_text())
+
+if len(sys.argv) == 3:
+    shard = int(sys.argv[1])
+    total = int(sys.argv[2])
+    per_shard = (len(boards) + total - 1) // total
+    boards = boards[shard * per_shard:(shard + 1) * per_shard]
 
 from multiprocessing import Pool
 with Pool() as pool:
