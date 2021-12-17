@@ -236,7 +236,6 @@ config.read(CAM_JOB)
 
 boards = json.loads(Path("info.json").read_text())[:20]
 
-print(sys.argv)
 if len(sys.argv) == 3:
     shard = int(sys.argv[1])
     total = int(sys.argv[2])

@@ -37,7 +37,7 @@ jobs:
           SHARD_TOTAL: ${{ matrix.total }}
       - name: convert to webp
         run: |
-          sudo apt-get update -q && apt-get install -y -q libwebp parallel
+          sudo apt-get update -q && sudo apt-get install -y -q libwebp parallel
           cd boards
           find . -name *.png | parallel -j100% cwebp -lossless {} -o {.}.webp
       - uses: actions/upload-artifact@v2
@@ -56,7 +56,7 @@ jobs:
       - uses: actions/download-artifact@v2
       - name: build webpage
         run: |
-          sudo apt-get update -q && apt-get install -y -q npm 
+          sudo apt-get update -q && sudo apt-get install -y -q npm 
           mv board_data*/* boards
           cd web
           npm install
