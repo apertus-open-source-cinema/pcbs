@@ -1,3 +1,9 @@
+{/*
+SPDX-FileCopyrightText: © 2021 Robin Ole Heinemann <robin.ole.heinemann@gmail.com>
+
+SPDX-License-Identifier: AGPL-3.0-only
+*/}
+
 import {boards, board_data, licenses, schs, brds, sch_pdfs, gerbers} from "./data.ts";
 
 import {

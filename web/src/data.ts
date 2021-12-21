@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: © 2021 Robin Ole Heinemann <robin.ole.heinemann@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-only
+
 import preview_top from "../../boards/*_top-preview.webp";
 import preview_bottom from "../../boards/*_bottom-preview.webp";
 
